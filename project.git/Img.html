@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Trabalho do Professor Marcos</title>
+  <style>
+    body {
+      background-color: #f0f0f0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    h1 {
+      color: #C800FF;
+      font-size: 28px;
+      margin-bottom: 20px;
+      text-shadow: 1px 1px 2px #000;
+    }
+
+    canvas {
+      transform: perspective(800px) rotateX(5deg) rotateY(-10deg);
+      box-shadow: -10px 10px 20px rgba(18, 14, 14, 0.3);
+      border: 2px solid gray;
+      border-radius: 8px;
+      background-color: #00004d;
+    }
+  </style>
+</head>
+<body>
+  <h1>Trabalho do Professor Marcos</h1>
+  <canvas id="tela" width="600" height="400"></canvas>
+
+  <script>
+    const canvas = document.getElementById('tela');
+    const ctx = canvas.getContext('2d');
+
+    const centerX = canvas.width / 2;
+    const centerY = canvas.height / 2;
+
+    
+    const gradiente = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, 120);
+    gradiente.addColorStop(0, 'rgba(208, 0, 255, 0.8)');
+    gradiente.addColorStop(1, 'rgba(0, 0, 0, 0)');
+    ctx.fillStyle = gradiente;
+    ctx.beginPath();
+    ctx.arc(centerX, centerY, 120, 0, Math.PI * 2);
+    ctx.fill();
+
+    
+    const numCircles = 5;
+    const spacing = 25;
+
+    for (let i = 0; i < numCircles; i++) {
+      const radius = spacing * (i + 1);
+      ctx.beginPath();
+      ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
+      ctx.strokeStyle = 'white';
+      ctx.shadowColor = 'white';
+      ctx.lineWidth = 6; 
+      ctx.shadowBlur = 20;
+      ctx.stroke();
+    }
+  </script>
+</body>
+</html>
