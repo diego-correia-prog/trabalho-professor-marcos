@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>COMPUTAÇÃO GRÁFICA</title>
+  <style>
+    body { font-family:sans-serif; text-align:center; padding:50px; background:#f0f0f0 }
+    img { max-width:100%; border-radius:8px }
+  </style>
+</head>
+<body>
+  <h1>COMPUTAÇÃO GRÁFICA</h1>
+  <img id="gif">
+  <script>
+    const gifs = ["https://media.giphy.com/media/JshL4uZk1tZt5W0TWV/giphy.gif"];
+    let i = 0, el = document.getElementById("gif");
+    setInterval(() => el.src = gifs[i++ % gifs.length], 3000);
+  </script>
+</body>
+</html>
