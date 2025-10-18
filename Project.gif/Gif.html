@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Porquinho Animado</title>
+  <style>
+    body {
+      background: #f8f7f7;
+      text-align: center;
+      font-family: sans-serif;
+      padding: 40px;
+    }
+    canvas {
+      border: 2px solid #f3efef;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Porquinho Caminhando </h1>
+  <canvas id="canvas" width="400" height="300"></canvas>
+
+  <script>
+    const canvas = document.getElementById("canvas");
+    const ctx = canvas.getContext("2d");
+
+    const frames = [
+      "porco1.jpg",
+      "porco2.jpg",
+      "porco3.jpg",
+      "porco4.jpg"
+    ]; 
+
+    const imagens = frames.map(src => {
+      const img = new Image();
+      img.src = src;
+      return img;
+    });
+
+    let i = 0;
+    setInterval(() => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      const img = imagens[i % imagens.length];
+      ctx.drawImage(img, 50, 50, 300, 200); 
+      i++;
+    }, 250); 
+  </script>
+</body>
+</html>
